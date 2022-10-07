@@ -59,3 +59,8 @@ export interface Links {
     href: string;
   };
 }
+
+export interface SearchShowsResponseItem {
+  score:number;
+  show:Show
+}

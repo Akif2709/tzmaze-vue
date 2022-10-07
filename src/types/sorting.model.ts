@@ -1,0 +1,6 @@
+export enum SortingKeys {
+  YEAR_ASCENDING,
+  YEAR_DESCENDING,
+  RATING_ASCENDING,
+  RATING_DESCENDING,
+}

@@ -3,6 +3,7 @@ import { ref } from "vue";
 
 let lastScrollTop: number;
 const navbar = ref();
+const isHamburgerMenuActive = ref(false)
 
 window.addEventListener("scroll", function () {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -13,7 +14,6 @@ window.addEventListener("scroll", function () {
     //set the value to the negetive of height of navbar
   } else {
     navbar.value.style.top = "0px";
-    console.log("hello");
   }
 
   lastScrollTop = scrollTop; //New Position Stored
@@ -22,7 +22,7 @@ window.addEventListener("scroll", function () {
 
 <template>
   <nav
-    class="navbar is-primary is-fixed-top"
+    class="navbar is-primary is-fixed-top has-shadow"
     role="navigation"
     aria-label="main navigation"
     ref="navbar"
@@ -41,8 +41,9 @@ window.addEventListener("scroll", function () {
         role="button"
         class="navbar-burger"
         aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
+        :class="{'is-active':isHamburgerMenuActive}"
+        :aria-expanded="isHamburgerMenuActive"
+        @click="isHamburgerMenuActive = !isHamburgerMenuActive"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -50,10 +51,10 @@ window.addEventListener("scroll", function () {
       </a>
     </div>
 
-    <div class="navbar-menu is-active">
+    <div class="navbar-menu" :class="{'is-active':isHamburgerMenuActive}">
       <div class="navbar-start">
-        <router-link class="navbar-item" to="/shows"> Shows </router-link>
-        <router-link class="navbar-item" to="/people"> Peoples </router-link>
+        <router-link class="navbar-item has-text-weight-bold" to="/shows"> Shows </router-link>
+        <router-link class="navbar-item has-text-weight-bold" to="/people"> Peoples </router-link>
       </div>
     </div>
   </nav>
