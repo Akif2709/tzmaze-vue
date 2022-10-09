@@ -1,7 +1,7 @@
 import type { Show } from "@/types/shows.model";
 import { ref, watchEffect, type Ref } from "vue";
 import ApiService from "@/services/api-service";
-import {pickGenres} from '@/utils/mappers'
+import { pickGenres } from "@/utils/mappers";
 
 export function fetchShowsFacade(query?: Ref<string>) {
   const shows = ref<Show[] | undefined>(undefined);
@@ -16,11 +16,10 @@ export function fetchShowsFacade(query?: Ref<string>) {
     try {
       if (query?.value) {
         shows.value = await ApiService.searchShows(query.value);
-        
       } else {
         shows.value = await ApiService.getAllShows();
       }
-      genres.value = pickGenres(shows.value)
+      genres.value = pickGenres(shows.value);
     } catch (e) {
       error.value = e as string;
     }

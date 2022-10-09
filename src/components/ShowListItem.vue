@@ -26,7 +26,7 @@ function onCardClick() {
           <p class="title is-6 ellipsis pb-2">{{ showItem?.name }}</p>
           <p class="subtitle mb-1 is-7 ellipsis">
             <strong>Category: </strong>
-            <i v-for="(item, index) in showItem?.genres"
+            <i v-for="(item, index) in showItem?.genres" :key="item"
               >{{ item }}{{ index !== showItem?.genres.length - 1 ? ", " : "" }}
             </i>
           </p>

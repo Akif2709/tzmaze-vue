@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import ShowsListViewComponent from "../views/ShowsListView.vue";
-import ShowDetailsView from "../views/ShowDetailsView.vue";
-import PeoplesViewComponent from "../views/PeoplesView.vue";
+import ShowsListViewComponent from "@/views/ShowsListView.vue";
+import ShowDetailsContainerView from "@/views/ShowDetailsContainer.vue";
+import PeoplesViewComponent from "@/views/PeoplesView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,7 +16,7 @@ const router = createRouter({
     },
     {
       path: "/shows/:id",
-      component: ShowDetailsView,
+      component: ShowDetailsContainerView,
     },
     {
       path: "/people",

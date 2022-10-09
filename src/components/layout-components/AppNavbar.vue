@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 let lastScrollTop: number;
 const navbar = ref();
-const isHamburgerMenuActive = ref(false)
+const isHamburgerMenuActive = ref(false);
 
 window.addEventListener("scroll", function () {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -41,9 +41,10 @@ window.addEventListener("scroll", function () {
         role="button"
         class="navbar-burger"
         aria-label="menu"
-        :class="{'is-active':isHamburgerMenuActive}"
+        :class="{ 'is-active': isHamburgerMenuActive }"
         :aria-expanded="isHamburgerMenuActive"
         @click="isHamburgerMenuActive = !isHamburgerMenuActive"
+        data-role="hamburger-menu"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -51,10 +52,22 @@ window.addEventListener("scroll", function () {
       </a>
     </div>
 
-    <div class="navbar-menu" :class="{'is-active':isHamburgerMenuActive}">
+    <div class="navbar-menu" :class="{ 'is-active': isHamburgerMenuActive }">
       <div class="navbar-start">
-        <router-link class="navbar-item has-text-weight-bold" to="/shows"> Shows </router-link>
-        <router-link class="navbar-item has-text-weight-bold" to="/people"> Peoples </router-link>
+        <router-link
+          class="abc navbar-item has-text-weight-bold"
+          to="/shows"
+          data-role="router-link-shows"
+        >
+          Shows
+        </router-link>
+        <router-link
+          class="navbar-item has-text-weight-bold"
+          to="/people"
+          data-role="router-link-peoples"
+        >
+          Peoples
+        </router-link>
       </div>
     </div>
   </nav>

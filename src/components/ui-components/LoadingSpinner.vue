@@ -6,8 +6,7 @@
   </div>
 </template>
 
-<style lang="scss">
-/* Bulma uses SASS mixins for creating CSS outputs */
+<style lang="scss" scoped>
 @mixin loader() {
   animation: spinAround 0.5s infinite linear;
   border: 2px solid #dbdbdb;

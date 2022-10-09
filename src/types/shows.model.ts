@@ -61,6 +61,6 @@ export interface Links {
 }
 
 export interface SearchShowsResponseItem {
-  score:number;
-  show:Show
+  score: number;
+  show: Show;
 }

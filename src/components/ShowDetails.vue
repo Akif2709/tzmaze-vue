@@ -35,7 +35,7 @@ defineProps({
       <hr class="my-2" />
       <div>
         <strong>Category: </strong>
-        <i v-for="(item, index) in showDetails.genres"
+        <i v-for="(item, index) in showDetails.genres" :key="item"
           >{{ item }}{{ index !== showDetails.genres.length - 1 ? ", " : "" }}
         </i>
       </div>
@@ -74,6 +74,4 @@ defineProps({
   </div>
 </template>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

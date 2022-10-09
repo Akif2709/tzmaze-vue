@@ -3,7 +3,7 @@ import { computed, onMounted, ref, watch } from "vue";
 import { fetchShowsFacade } from "@/composables/fetch-shows";
 import { watchDebounced } from "@vueuse/core";
 import ErrorStateComponent from "@/components/ui-components/ErrorState.vue";
-import Spinner from "@/components/ui-components/Spinner.vue";
+import LoadingSpinner from "@/components/ui-components/LoadingSpinner.vue";
 import ShowListItemComponent from "@/components/ShowListItem.vue";
 import { useRouter } from "vue-router";
 import type { Show } from "@/types/shows.model";
@@ -58,16 +58,21 @@ function navigateToDetails(id: number) {
 <template>
   <main>
     <div>
-      <div class="control columns mx-2" :class="{ 'is-loading': loading }">
+      <div class="columns mx-2" :class="{ 'is-loading': loading }">
         <div class="mx-3">
           <label for="shows-search-bar"> Type to search:</label>
-          <input
-            id="shows-search-bar"
-            type="text"
-            placeholder="Search shows by name"
-            class="input is-info"
-            v-model="searchText"
-          />
+          <p class="control has-icons-left">
+            <input
+              id="shows-search-bar"
+              type="text"
+              placeholder="Search shows by name"
+              class="input is-info"
+              v-model="searchText"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
+          </p>
         </div>
 
         <div class="mx-3">
@@ -75,12 +80,10 @@ function navigateToDetails(id: number) {
           <br />
           <div class="select shows-category-select__dropdown">
             <select v-model="selectedGenre" id="shows-category-select">
-              <option
-                :value="!genres?.length ? selectedGenre : 'All'"
-              >
+              <option :value="!genres?.length ? selectedGenre : 'All'">
                 {{ !genres?.length ? selectedGenre : "All" }}
               </option>
-              <option v-for="genre in genres" :value="genre">
+              <option v-for="genre in genres" :value="genre" :key="genre">
                 {{ genre }}
               </option>
             </select>
@@ -108,14 +111,14 @@ function navigateToDetails(id: number) {
       >
         <ShowListItemComponent
           v-for="show in filteredShows"
+          :key="show.id"
           :showItem="show"
           @onClick="navigateToDetails"
         ></ShowListItemComponent>
 
-      <div v-if="!filteredShows.length" class="is-size-5 is-flex m-5">
-        No items found with your search criteria.. 
-      </div>
-
+        <div v-if="!filteredShows.length" class="is-size-5 is-flex m-5">
+          No items found with your search criteria..
+        </div>
       </div>
       <div v-else-if="error">
         <ErrorStateComponent
@@ -124,14 +127,14 @@ function navigateToDetails(id: number) {
         ></ErrorStateComponent>
       </div>
       <div v-else class="pt-5">
-        <Spinner></Spinner>
+        <LoadingSpinner></LoadingSpinner>
       </div>
     </div>
   </main>
 </template>
 
 <style lang="scss">
-.shows-category-select__dropdown select{
-min-width: 180px;
+.shows-category-select__dropdown select {
+  min-width: 180px;
 }
 </style>

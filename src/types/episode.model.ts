@@ -23,3 +23,7 @@ export interface Episode {
     };
   };
 }
+
+export interface EpisodesInGroup {
+  [key: string]: Episode[];
+}

@@ -6,7 +6,7 @@ import {
   fetchShowEpisodesFacade,
 } from "@/composables/fetch-show-details";
 import ErrorStateComponent from "@/components/ui-components/ErrorState.vue";
-import Spinner from "@/components/ui-components/Spinner.vue";
+import LoadingSpinner from "@/components/ui-components/LoadingSpinner.vue";
 import ShowDetailsComponent from "@/components/ShowDetails.vue";
 import EpisodesListComponent from "@/components/EpisodesList.vue";
 import CrewListComponent from "@/components/CrewList.vue";
@@ -66,7 +66,7 @@ function onTabClick(selectedTab: DetailsTabs) {
                 :aria-hidden="!(activeTab === DetailsTabs.Crew)"
               ></i
             ></span>
-            <span>Stars</span>
+            <span>Crew</span>
           </a>
         </li>
       </ul>
@@ -92,7 +92,7 @@ function onTabClick(selectedTab: DetailsTabs) {
     ></ErrorStateComponent>
   </div>
   <div v-else class="pt-5">
-    <Spinner></Spinner>
+    <LoadingSpinner></LoadingSpinner>
   </div>
 </template>
 

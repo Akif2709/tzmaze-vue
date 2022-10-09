@@ -1,5 +1,5 @@
 export interface CrewItem {
-  type: string;
+  type: string | string[];
   person: {
     id: number;
     url: string;
