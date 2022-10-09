@@ -12,14 +12,14 @@ defineProps({
     <section class="section py-1">
       <!-- Season section -->
       <div v-for="season in episodes" :key="season[0].id">
-        <h2 class="title is-size-4 ml-2 mb-2" data-role="season-title">
+        <h2 class="title is-size-3 ml-2 my-2 mt-5" data-role="season-title">
           Season {{ season[0]?.season }}
         </h2>
         <!-- Episode card -->
         <div class="is-flex is-flex-direction-column is-flex-wrap-wrap">
           <div
             v-for="episode in season"
-            class="m-2 card is-flex"
+            class="m-2 card is-flex episode-container"
             :key="episode.id"
             data-role="episode"
           >
@@ -63,10 +63,21 @@ defineProps({
   margin: 10px;
   overflow: hidden;
 }
-@media screen and (max-width: 899px) {
+@media screen and (max-width: 620px) {
+  .episode-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
   .card {
-    width: 15rem;
     margin: 8px auto;
+    max-height: 320px;
+    .card-image {
+      margin: auto;
+      img {
+        border-radius: 10px;
+      }
+    }
   }
 }
 
