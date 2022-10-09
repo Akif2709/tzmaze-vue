@@ -2,7 +2,7 @@ import type { CrewItem } from "@/types/crew.model";
 import { mount, VueWrapper } from "@vue/test-utils";
 import CrewList from "../CrewList.vue";
 
-describe.only("CrewList component", () => {
+describe("CrewList component", () => {
   let wrapper: VueWrapper<CrewList>;
   beforeEach(() => {
     wrapper = mount(CrewList, {

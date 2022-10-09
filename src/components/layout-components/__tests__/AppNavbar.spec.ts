@@ -1,10 +1,10 @@
-import { mount, VueWrapper } from "@vue/test-utils";
+import { shallowMount, VueWrapper } from "@vue/test-utils";
 import AppNavbar from "../AppNavbar.vue";
 
-describe.only("AppNavbar component", () => {
+describe("AppNavbar component", () => {
   let wrapper: VueWrapper<AppNavbar>;
   beforeEach(() => {
-    wrapper = mount(AppNavbar, {
+    wrapper = shallowMount(AppNavbar, {
       stubs: {
         stubs: ["router-link"],
       },

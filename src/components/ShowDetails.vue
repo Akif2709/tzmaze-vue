@@ -13,17 +13,19 @@ defineProps({
       <div
         class="details-item-image column is-one-fifth is-three-quarters-mobile is-two-thirds-tablet"
       >
-        <img :src="showDetails.image.original" :alt="showDetails.name" />
+        <img :src="showDetails.image?.original" :alt="showDetails?.name" />
       </div>
       <div class="column">
         <p
           v-html="showDetails.summary"
           class="has-text-weight-bold has-text-justified mb-3"
+          data-role="show-details-summary"
         ></p>
         <a
-          v-if="showDetails.officialSite"
-          :href="showDetails.officialSite"
+          v-if="showDetails?.officialSite"
+          :href="showDetails?.officialSite"
           class="has-text-weight-bold"
+          data-role="visit-official-website-text"
           >Visit official website</a
         >
       </div>
@@ -31,36 +33,41 @@ defineProps({
 
     <!-- Details -->
     <section class="section py-4">
-      <h3 class="is-size-4 has-text-weight-bold">Details</h3>
+      <h3
+        class="is-size-4 has-text-weight-bold"
+        data-role="show-details-subheader"
+      >
+        Details
+      </h3>
       <hr class="my-2" />
-      <div>
+      <div data-role="category">
         <strong>Category: </strong>
-        <i v-for="(item, index) in showDetails.genres" :key="item"
+        <i v-for="(item, index) in showDetails?.genres" :key="item"
           >{{ item }}{{ index !== showDetails.genres.length - 1 ? ", " : "" }}
         </i>
       </div>
-      <div>
+      <div data-role="show-details-language">
         <strong>Language: </strong> <i>{{ showDetails.language }}</i>
       </div>
-      <div v-if="showDetails.status">
+      <div v-if="showDetails?.status">
         <strong>Status: </strong> <i>{{ showDetails.status }}</i>
       </div>
-      <div v-if="showDetails.rating.average">
+      <div v-if="showDetails?.rating?.average">
         <strong>Rating: </strong> <i>{{ showDetails.rating.average }}</i>
       </div>
-      <div v-if="showDetails.premiered">
+      <div v-if="showDetails?.premiered">
         <strong>Premiered: </strong> <i>{{ showDetails.premiered }}</i>
       </div>
-      <div v-if="showDetails.ended">
+      <div v-if="showDetails?.ended">
         <strong>Ended: </strong> <i>{{ showDetails.ended }}</i>
       </div>
-      <div v-if="showDetails.network.name">
+      <div v-if="showDetails?.network?.name">
         <strong>Network: </strong>
         <a :href="showDetails.network.officialSite">{{
           showDetails.network.name
         }}</a>
       </div>
-      <div v-if="showDetails.network.country">
+      <div v-if="showDetails?.network?.country">
         <strong>Country: </strong> <i>{{ showDetails.network.country.name }}</i>
       </div>
       <div v-if="showDetails.schedule">

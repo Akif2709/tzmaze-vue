@@ -14,7 +14,12 @@ function onCardClick() {
 }
 </script>
 <template>
-  <a v-if="showItem" class="card" @click="onCardClick">
+  <a
+    v-if="showItem"
+    class="card"
+    @click="onCardClick"
+    data-role="show-list-item__card"
+  >
     <div class="card-image">
       <figure class="image img-container m-auto">
         <img :src="showItem?.image?.original" :alt="showItem.name" />
@@ -23,17 +28,22 @@ function onCardClick() {
     <div class="card-content py-3">
       <div class="media">
         <div class="media-content">
-          <p class="title is-6 ellipsis pb-2">{{ showItem?.name }}</p>
-          <p class="subtitle mb-1 is-7 ellipsis">
+          <p class="title is-6 ellipsis pb-2" data-role="show-list-item__name">
+            {{ showItem?.name }}
+          </p>
+          <p
+            class="subtitle mb-1 is-7 ellipsis"
+            data-role="show-list-item__category"
+          >
             <strong>Category: </strong>
             <i v-for="(item, index) in showItem?.genres" :key="item"
               >{{ item }}{{ index !== showItem?.genres.length - 1 ? ", " : "" }}
             </i>
           </p>
-          <p class="subtitle mb-1 is-7">
+          <p class="subtitle mb-1 is-7" data-role="show-list-item__average">
             <strong>Rating:</strong> {{ showItem?.rating.average }}
           </p>
-          <p class="subtitle mb-1 is-7">
+          <p class="subtitle mb-1 is-7" data-role="show-list-item__year">
             <strong>Year:</strong> {{ showItem?.premiered }}
           </p>
         </div>

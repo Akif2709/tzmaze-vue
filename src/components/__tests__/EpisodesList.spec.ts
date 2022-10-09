@@ -1,9 +1,8 @@
 import type { Episode, EpisodesInGroup } from "@/types/episode.model";
-import type { CrewItem } from "@/types/crew.model";
 import { mount, VueWrapper } from "@vue/test-utils";
 import EpisodesList from "../EpisodesList.vue";
 
-describe.only("EpisodesList component", () => {
+describe("EpisodesList component", () => {
   let wrapper: VueWrapper<EpisodesList>;
   beforeEach(() => {
     wrapper = mount(EpisodesList, {
