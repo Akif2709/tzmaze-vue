@@ -3,9 +3,9 @@ import { mount, VueWrapper } from "@vue/test-utils";
 import CrewList from "../CrewList.vue";
 
 describe("CrewList component", () => {
-  let wrapper: VueWrapper<CrewList>;
+  let wrapper: VueWrapper;
   beforeEach(() => {
-    wrapper = mount(CrewList, {
+    const  wrapper = mount(CrewList, {
       propsData: {
         crew: MOCK_CREW,
       },

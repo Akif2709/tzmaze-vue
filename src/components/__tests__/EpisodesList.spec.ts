@@ -3,7 +3,7 @@ import { mount, VueWrapper } from "@vue/test-utils";
 import EpisodesList from "../EpisodesList.vue";
 
 describe("EpisodesList component", () => {
-  let wrapper: VueWrapper<EpisodesList>;
+  let wrapper: VueWrapper;
   beforeEach(() => {
     wrapper = mount(EpisodesList, {
       propsData: {

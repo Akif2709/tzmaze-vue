@@ -2,7 +2,7 @@ import { mount, VueWrapper } from "@vue/test-utils";
 import ErrorState from "../ErrorState.vue";
 
 describe("ErrorState component", () => {
-  let wrapper: VueWrapper<ErrorState>;
+  let wrapper: VueWrapper;
   beforeEach(() => {
     wrapper = mount(ErrorState, {
       propsData: {

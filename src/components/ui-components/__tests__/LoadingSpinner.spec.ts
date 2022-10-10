@@ -2,7 +2,7 @@ import { mount, VueWrapper } from "@vue/test-utils";
 import LoadingSpinner from "../LoadingSpinner.vue";
 
 describe("ErrorState component", () => {
-  let wrapper: VueWrapper<LoadingSpinner>;
+  let wrapper: VueWrapper;
   beforeEach(() => {
     wrapper = mount(LoadingSpinner);
   });

@@ -2,7 +2,7 @@ import { shallowMount, VueWrapper } from "@vue/test-utils";
 import AppNavbar from "../AppNavbar.vue";
 
 describe("AppNavbar component", () => {
-  let wrapper: VueWrapper<AppNavbar>;
+  let wrapper: VueWrapper;
   beforeEach(() => {
     wrapper = shallowMount(AppNavbar, {
       stubs: {
@@ -23,6 +23,6 @@ describe("AppNavbar component", () => {
   test("clicking hamburger menu should update its activation", async () => {
     const hamburgerMEnu = wrapper.find('[data-role="hamburger-menu"]');
     await hamburgerMEnu.trigger("click");
-    expect(wrapper.vm.isHamburgerMenuActive).toBe(true);
+    expect((wrapper.vm as any).isHamburgerMenuActive).toBe(true);
   });
 });

@@ -37,11 +37,11 @@ const checkElementsSuites = [
 ];
 
 describe("ShowListItemComponent component", () => {
-  let wrapper: VueWrapper<ShowListItemComponent>;
+  let wrapper: VueWrapper<any>;
   beforeEach(() => {
     wrapper = mount(ShowListItemComponent, {
       propsData: {
-        showItem: MOCK_SHOW,
+        showItem: MOCK_SHOW as Show,
       },
     });
   });

@@ -39,7 +39,7 @@ const checkElementsSuites = [
 ];
 
 describe("ShowDetails component", () => {
-  let wrapper: VueWrapper<ShowDetails>;
+  let wrapper: VueWrapper;
   beforeEach(() => {
     wrapper = mount(ShowDetails, {
       propsData: {
