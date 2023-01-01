@@ -18,7 +18,6 @@ export function fetchShowsFacade(query?: Ref<string>) {
         shows.value = await ApiService.searchShows(query.value);
       } else {
         shows.value = await ApiService.getAllShows();
-        console.log("hello", shows.value);
       }
       genres.value = pickGenres(shows.value);
     } catch (e) {

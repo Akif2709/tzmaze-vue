@@ -32,14 +32,14 @@ watch([shows, selectedGenre, sortBy], ([rawShows, genre, sortByValue]) => {
     showsAreFetched.value = true;
   }
 
-  filteredShows.value = sortShows(filteredShows.value, sortByValue);
-
   filteredShows.value =
     genre === "All"
       ? rawShows
       : rawShows?.filter((i) =>
           genre === "All" ? i : i.genres.includes(genre)
         );
+
+  filteredShows.value = sortShows(filteredShows.value, sortByValue);
 });
 
 watchDebounced(

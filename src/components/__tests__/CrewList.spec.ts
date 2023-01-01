@@ -5,7 +5,7 @@ import CrewList from "../CrewList.vue";
 describe("CrewList component", () => {
   let wrapper: VueWrapper;
   beforeEach(() => {
-    const  wrapper = mount(CrewList, {
+    const wrapper = mount(CrewList, {
       propsData: {
         crew: MOCK_CREW,
       },
